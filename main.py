@@ -979,41 +979,24 @@ def main():
     gist_url = create_gist(gist_content, summary_title, GITHUB_TOKEN)
 
     if not gist_url:
-        print("⚠️ Gist 创建失败，发送简化版推送")
-        # Fallback: send simplified message without Gist
-        now = (datetime.utcnow() + timedelta(hours=8)).strftime('%Y-%m-%d %H:%M')
-        article_list = ""
-        for i, a in enumerate(processed_articles[:10]):
-            article_list += f"{i+1}. [{a['title']}]({a['link']})
-"
-        msg = {
-            "msgtype": "markdown",
-            "markdown": {"content": f"# 📰 公众号文章更新 ({now})
+        print("❌ Gist 创建失败，终止流程")
+        exit(1)
 
-共 {len(processed_articles)} 篇新文章:
+    print()
 
-" + article_list}
-        }
-        try:
-            r = requests.post(WEBHOOK_URL, json=msg, timeout=10)
-            success = r.json().get('errcode') == 0
-            print(f"{'✅ 推送成功' if success else '❌ 推送失败'}")
-        except Exception as e:
-            print(f"❌ 推送失败: {e}")
-            success = False
-    else:
-        print()
-        print("=" * 60)
-        print("推送到企业微信（Gist 链接）")
-        print("=" * 60)
-        print()
+    # 推送到企业微信（使用 Gist 链接）
+    print()
+    print("=" * 60)
+    print("推送到企业微信（Gist 链接）")
+    print("=" * 60)
+    print()
 
-        success = send_to_wechat_with_gist_link(
-            account_name=summary_title,
-            gist_url=gist_url,
-            webhook_url=WEBHOOK_URL,
-            articles=processed_articles
-        )
+    success = send_to_wechat_with_gist_link(
+        account_name=summary_title,
+        gist_url=gist_url,
+        webhook_url=WEBHOOK_URL,
+        articles=processed_articles
+    )
 
     print()
     print("=" * 60)

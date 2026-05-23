@@ -1,80 +1,26 @@
 {
   "rss_subscriptions": [
-    {
-      "name": "新智元",
-      "url": "https://wec.zeabur.app/feed/1f977d0059386d49693f1be76b2773f6d3380e1e.xml",
-      "enabled": true
-    },
-    {
-      "name": "逛逛GitHub",
-      "url": "https://wec.zeabur.app/feed/d7274dc55951f1e0b834f60db01c293f82781e04.xml",
-      "enabled": true
-    },
-    {
-      "name": "数字生命卡兹克",
-      "url": "https://wec.zeabur.app/feed/b77ff48cc40245a2846a9dc98bdb58bfce9dff1c.xml",
-      "enabled": true
-    },
-    {
-      "name": "量子位",
-      "url": "https://wec.zeabur.app/feed/43df61dc721c56c8bf0ad68e808bc986c57a9000.xml",
-      "enabled": true
-    },
-    {
-      "name": "Tech星球",
-      "url": "https://wec.zeabur.app/feed/c52254f3091479681b7408dfe68dcbc7eab24b11.xml",
-      "enabled": true
-    },
-    {
-      "name": "硅星人Pro",
-      "url": "https://wec.zeabur.app/feed/2383fb2baa8997d9dc3b17f1909a83cfd6c2d06d.xml",
-      "enabled": true
-    },
-    {
-      "name": "AI产品榜",
-      "url": "https://wec.zeabur.app/feed/98f5e2532b707d80e06b19f585138355ac2ad89a.xml",
-      "enabled": true
-    },
-    {
-      "name": "AI科技评论",
-      "url": "https://wec.zeabur.app/feed/abef684cb5915667676e9621e456e407f5ca5ac3.xml",
-      "enabled": true
-    },
-    {
-      "name": "机器之心",
-      "url": "https://wec.zeabur.app/feed/26a5c4068e226a48bc133c26dbc2e2ea2f3bbd33.xml",
-      "enabled": true
-    },
-    {
-      "name": "火星研究社",
-      "url": "https://wec.zeabur.app/feed/dfe263f42cd07f4f83829e483836c2d3ef159bf7.xml",
-      "enabled": true
-    },
-    {
-      "name": "小睿睿投资学",
-      "url": "https://wec.zeabur.app/feed/9853193513c15599f7ebb6d24349dcf9f6f67673.xml",
-      "enabled": true
-    },
-    {
-      "name": "APPSO",
-      "url": "https://wec.zeabur.app/feed/9da805ac9714a8337326de325ef166f90c4373f7.xml",
-      "enabled": true
-    },
-    {
-      "name": "IT之家",
-      "url": "https://wec.zeabur.app/feed/e99f8a1ccec104f8f12c2090e72dbc5a05e2074c.xml",
-      "enabled": true
-    },
-    {
-      "name": "MindCode",
-      "url": "https://wec.zeabur.app/feed/51ff48a6706d9523dc869a0dc60c05b7f182dcee.xml",
-      "enabled": true
-    },
-    {
-      "name": "行业报告研究院",
-      "url": "https://wec.zeabur.app/feed/07a278f158b3bc8b3b39e64fac6352c595667230.xml",
-      "enabled": true
-    }
+    {"name": "机器之心", "url": "https://wechat2rss.xlab.app/feed/51e92aad2728acdd1fda7314be32b16639353001.xml", "enabled": true},
+    {"name": "量子位", "url": "https://wechat2rss.xlab.app/feed/7131b577c61365cb47e81000738c10d872685908.xml", "enabled": true},
+    {"name": "新智元", "url": "https://wechat2rss.xlab.app/feed/ede30346413ea70dbef5d485ea5cbb95cca446e7.xml", "enabled": true},
+    {"name": "极客公园", "url": "https://wechat2rss.xlab.app/feed/1a5aec98e71c707c8ca092bc2c255b9d4bac477d.xml", "enabled": true},
+    {"name": "PaperWeekly", "url": "https://wechat2rss.xlab.app/feed/3be891c2f4e526629ab055a297cc2cd6c1f0a563.xml", "enabled": true},
+    {"name": "Datawhale", "url": "https://wechat2rss.xlab.app/feed/4d620d988cb21cfeefd2263207221f0dc70df9ff.xml", "enabled": true},
+    {"name": "夕小瑶科技说", "url": "https://wechat2rss.xlab.app/feed/a1cd365aa14ed7d64cabfc8aa086da40ecaba34d.xml", "enabled": true},
+    {"name": "机器学习初学者", "url": "https://wechat2rss.xlab.app/feed/c5f385197ef56f9345db0daf1e46419af8c7d664.xml", "enabled": true},
+    {"name": "集智俱乐部", "url": "https://wechat2rss.xlab.app/feed/8540570d27c0bfe0a219173cf1ace83ae79445cb.xml", "enabled": true},
+    {"name": "我爱计算机视觉", "url": "https://wechat2rss.xlab.app/feed/b81ffcfff1107b5265cd7e39de610dc7ca72caf4.xml", "enabled": true},
+    {"name": "字节跳动技术团队", "url": "https://wechat2rss.xlab.app/feed/4025ea55575daf8bfd8227e68b28d9638b073267.xml", "enabled": true},
+    {"name": "美团技术团队", "url": "https://wechat2rss.xlab.app/feed/eb4d04149424a874693a51c6fdda0dba8673f5e4.xml", "enabled": true},
+    {"name": "阿里技术", "url": "https://wechat2rss.xlab.app/feed/6e1f9b775f7a5841ac1a94310f0478b45a02ec01.xml", "enabled": true},
+    {"name": "小米技术", "url": "https://wechat2rss.xlab.app/feed/20bc9c3251b3c4f73d3b53aa1f1ab853d05d4cbc.xml", "enabled": true},
+    {"name": "哔哩哔哩技术", "url": "https://wechat2rss.xlab.app/feed/434235d4815fdb8447ff3127fc053ceb8b3aada6.xml", "enabled": true},
+    {"name": "腾讯技术工程", "url": "https://wechat2rss.xlab.app/feed/9685937b45fe9c7a526dbc32e4f24ba879a65b9a.xml", "enabled": true},
+    {"name": "阿里云开发者", "url": "https://wechat2rss.xlab.app/feed/c74ed6db00cfbf16f2a048a165b4453f982681f0.xml", "enabled": true},
+    {"name": "古明地觉的编程教室", "url": "https://wechat2rss.xlab.app/feed/9e21dbf7a7cca45762bbed43f86cf04f82b23e1a.xml", "enabled": true},
+    {"name": "未闻Code", "url": "https://wechat2rss.xlab.app/feed/a148ed0a542de4be305ffa1b93e8663ad252e22c.xml", "enabled": true},
+    {"name": "浅黑科技", "url": "https://wechat2rss.xlab.app/feed/6111a6d5ecf28cfdd4fc9b664244c05ddacef15c.xml", "enabled": true},
+    {"name": "差评", "url": "https://wechat2rss.xlab.app/feed/8d839de8dd3290a1f1be7a94423cccb30c1b087d.xml", "enabled": true}
   ],
   "filters": {
     "max_hours": 24,

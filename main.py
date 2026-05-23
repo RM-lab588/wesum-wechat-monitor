@@ -16,9 +16,8 @@ from typing import Dict, List
 if hasattr(sys.stdout, 'buffer'):
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace', line_buffering=True)
 
-# 通义千问 API
-import dashscope
-from dashscope import Generation
+# OpenAI 兼容 API (天津大学 LLM)
+from openai import OpenAI
 
 # ==================== 配置加载 ====================
 
@@ -29,10 +28,13 @@ try:
 except ImportError:
     pass  # python-dotenv 未安装，跳过
 
-# 通义千问 API Key（必需）
-DASHSCOPE_API_KEY = os.getenv("DASHSCOPE_API_KEY")
-if not DASHSCOPE_API_KEY:
-    raise ValueError("请设置环境变量 DASHSCOPE_API_KEY（在 .env 文件中）")
+# API 配置（OpenAI 兼容协议 - 天津大学 LLM）
+API_KEY = os.getenv("API_KEY")
+if not API_KEY:
+    raise ValueError("请设置环境变量 API_KEY（在 .env 文件中）")
+
+API_BASE_URL = os.getenv("API_BASE_URL", "https://ai.tju.edu.cn/api/v3/")
+MODEL_ID = os.getenv("MODEL_ID", "tju-llm")
 
 # 企业微信 Webhook URL（必需）
 WEBHOOK_URL = os.getenv("WEBHOOK_URL")
@@ -110,8 +112,8 @@ RSS_SUBSCRIPTIONS = load_subscriptions()
 class AIArticleProcessor:
     """AI 文章处理器"""
 
-    def __init__(self, api_key: str, model: str = "qwen-plus"):
-        dashscope.api_key = api_key
+    def __init__(self, api_key: str, base_url: str, model: str = "tju-llm"):
+        self.client = OpenAI(api_key=api_key, base_url=base_url)
         self.model = model
         self.noise_keywords = self._default_noise_keywords()
 
@@ -229,17 +231,16 @@ class AIArticleProcessor:
 4. 直接返回标签，用顿号分隔，不要其他说明"""
 
         try:
-            response = Generation.call(
+            response = self.client.chat.completions.create(
                 model=self.model,
-                prompt=prompt,
+                messages=[{"role": "user", "content": prompt}],
                 max_tokens=100,
                 temperature=0.3
             )
 
-            if response.status_code == 200:
-                categories_text = response.output.text.strip()
-                categories = [c.strip() for c in categories_text.split('、') if c.strip()]
-                return categories[:3]
+            categories_text = response.choices[0].message.content.strip()
+            categories = [c.strip() for c in categories_text.split('、') if c.strip()]
+            return categories[:3]
         except Exception as e:
             print(f"分类生成失败：{str(e)}")
 
@@ -310,15 +311,15 @@ class AIArticleProcessor:
 """
 
         try:
-            response = Generation.call(
+            response = self.client.chat.completions.create(
                 model=self.model,
-                prompt=prompt,
+                messages=[{"role": "user", "content": prompt}],
                 max_tokens=1000,
                 temperature=0.5
             )
 
-            if response.status_code == 200:
-                ai_text = response.output.text.strip()
+            ai_text = response.choices[0].message.content.strip()
+            if ai_text:
 
                 # 调试：打印 AI 原始返回的前 200 个字符
                 print(f"       [DEBUG] AI 原始返回（前200字符）:")
@@ -344,6 +345,9 @@ class AIArticleProcessor:
                         return content[:500] + "..."
 
                     return summary
+            else:
+                print(f"       ⚠️  警告：AI 返回为空")
+                return content[:500] + "..."
 
         except Exception as e:
             print(f"摘要生成失败：{str(e)}")
@@ -879,7 +883,7 @@ def main():
     print()
 
     # 创建 AI 处理器
-    ai_processor = AIArticleProcessor(api_key=DASHSCOPE_API_KEY)
+    ai_processor = AIArticleProcessor(api_key=API_KEY, base_url=API_BASE_URL, model=MODEL_ID)
 
     processed_articles = []
 
